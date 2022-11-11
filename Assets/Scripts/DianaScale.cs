@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class C : MonoBehaviour
+public class DianaScale : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void ScaleUp()
     {
-        
+        LeanTween.scale(gameObject, Vector3.one * 4f, 0.5f);
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ScaleDown()
     {
-        
+        LeanTween.scale(gameObject, Vector3.one * 1f, 0.5f);
     }
 }
