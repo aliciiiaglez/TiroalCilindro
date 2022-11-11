@@ -23,12 +23,25 @@ public class ScaleObject : MonoBehaviour
             {
                 if (hitInfo.collider.tag.Equals("Diana"))
                 {
-                    GameObject diana = hitInfo.collider.gameObject;
-                    hitInfo.collider.GetComponent<MeshRenderer>().material = hitMaterial;
-                    LeanTween.scale(diana, Vector3.one * 4f, 0.5f);
+                    if (hitInfo.collider.GetComponent<DianaScale>().shot == false)
+                    {
+                        GameObject diana = hitInfo.collider.gameObject;
+                        hitInfo.collider.GetComponent<DianaScale>().shot = true;
+                        hitInfo.collider.GetComponent<MeshRenderer>().material = hitMaterial;
+                        LeanTween.scale(diana, Vector3.one * 4f, 0.5f);
+                    }
+                    else 
+                    {
+                        GameObject diana = hitInfo.collider.gameObject;
+                        hitInfo.collider.GetComponent<DianaScale>().shot = true;
+                        hitInfo.collider.GetComponent<MeshRenderer>().material = defaultMaterial;
+                        LeanTween.scale(diana, Vector3.one * 1f, 0.5f);
+
+                    }
+
 
                 }
-
+                
             }
             
         }
